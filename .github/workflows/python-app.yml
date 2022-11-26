@@ -44,6 +44,13 @@ jobs:
       group: some-group-name
     needs: build
     steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
     - name: Lint with flake8
       run: |
         poetry run task lint
@@ -62,6 +69,13 @@ jobs:
       group: some-group-name
     needs: build
     steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
     - name: format
       run: |
         poetry run task formatter
@@ -80,6 +94,13 @@ jobs:
       group: some-group-name
     needs: build
     steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
     - name: sec
       run: |
         poetry run task security
@@ -96,6 +117,13 @@ jobs:
         working-directory: ./example-app
     needs: [sec, lint, format]
     steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
     - name: Test with pytest
       run: |
         poetry run task test
