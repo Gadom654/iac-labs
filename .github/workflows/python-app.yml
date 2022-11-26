@@ -112,7 +112,7 @@ jobs:
       with:
         path: /home/runner/work/iac-labs/iac-labs/example-app/.venv
         key: ${{ runner.os }}-venv
-    - name: sec
+    - name: security
       run: |
         source $venv
         poetry run task security
