@@ -51,6 +51,9 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry
       uses: snok/install-poetry@v1
+    - name: Install dependencies
+      run: |
+        poetry install --no-root
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
@@ -76,6 +79,9 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry
       uses: snok/install-poetry@v1
+    - name: Install dependencies
+      run: |
+        poetry install --no-root
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
@@ -101,6 +107,9 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry
       uses: snok/install-poetry@v1
+    - name: Install dependencies
+      run: |
+        poetry install --no-root
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
@@ -124,6 +133,9 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry
       uses: snok/install-poetry@v1
+    - name: Install dependencies
+      run: |
+        poetry install --no-root
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
