@@ -46,6 +46,8 @@ jobs:
     defaults:
       run:
         working-directory: ./example-app
+    concurrency:
+      group: some-group-name
     needs: build
     steps:
     - name: Lint with flake8
@@ -56,6 +58,8 @@ jobs:
     defaults:
       run:
         working-directory: ./example-app
+    concurrency:
+      group: some-group-name
     needs: build
     steps:
     - name: format
@@ -66,6 +70,8 @@ jobs:
     defaults:
       run:
         working-directory: ./example-app
+    concurrency:
+      group: some-group-name
     needs: build
     steps:
     - name: sec
