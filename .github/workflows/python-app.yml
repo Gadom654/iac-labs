@@ -82,7 +82,7 @@ jobs:
     defaults:
       run:
         working-directory: ./example-app
-    needs: build
+    needs: [sec, lint, format]
     steps:
     - name: Test with pytest
       run: |
