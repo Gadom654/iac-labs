@@ -32,12 +32,52 @@ jobs:
     - name: Lint with flake8
       run: |
         poetry run task lint
-    -name: format
+    - name: format
       run: |
         poetry run task formatter
-    -name: sec
+    - name: sec
       run: |
         poetry run task security
+    - name: Test with pytest
+      run: |
+        poetry run task test
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./example-app
+    needs: build
+    steps:
+    - name: Lint with flake8
+      run: |
+        poetry run task lint
+  format:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./example-app
+    needs: build
+    steps:
+    - name: format
+      run: |
+        poetry run task formatter
+  sec:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./example-app
+    needs: build
+    steps:
+    - name: sec
+      run: |
+        poetry run task security
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./example-app
+    needs: build
+    steps:
     - name: Test with pytest
       run: |
         poetry run task test
