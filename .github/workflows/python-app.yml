@@ -59,7 +59,7 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: Lint with flake8
       run: |
-        source $VENV
+        source /home/runner/work/iac-labs/example-app/.venv
         poetry run task lint
   format:
     runs-on: ubuntu-latest
@@ -85,7 +85,7 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: format
       run: |
-        source $VENV
+        source /home/runner/work/iac-labs/example-app/.venv
         poetry run task formatter
   sec:
     runs-on: ubuntu-latest
@@ -111,7 +111,7 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: sec
       run: |
-        source $VENV
+        source /home/runner/work/iac-labs/example-app/.venv
         poetry run task security
   test:
     runs-on: ubuntu-latest
@@ -138,5 +138,5 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: Test with pytest
       run: |
-        source $VENV
+        source /home/runner/work/iac-labs/example-app/.venv
         poetry run task test
