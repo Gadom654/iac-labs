@@ -25,7 +25,7 @@ jobs:
       with:
         python-version: "3.10"
     - name: Install Poetry
-      uses: snok/install-poetry@v1
+      uses: snok/install-poetry@v1.3.3
     - name: Install dependencies
       run: |
         poetry install --no-root
@@ -50,7 +50,7 @@ jobs:
       with:
         python-version: "3.10"
     - name: Install Poetry
-      uses: snok/install-poetry@v1
+      uses: snok/install-poetry@v1.3.3
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
@@ -59,7 +59,7 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: Lint with flake8
       run: |
-        source /home/runner/work/iac-labs/example-app/.venv
+        source $VENV
         poetry run task lint
   format:
     runs-on: ubuntu-latest
@@ -76,7 +76,7 @@ jobs:
       with:
         python-version: "3.10"
     - name: Install Poetry
-      uses: snok/install-poetry@v1
+      uses: snok/install-poetry@v1.3.3
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
@@ -85,7 +85,7 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: format
       run: |
-        source /home/runner/work/iac-labs/example-app/.venv
+        source $VENV
         poetry run task formatter
   sec:
     runs-on: ubuntu-latest
@@ -102,7 +102,7 @@ jobs:
       with:
         python-version: "3.10"
     - name: Install Poetry
-      uses: snok/install-poetry@v1
+      uses: snok/install-poetry@v1.3.3
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
@@ -111,7 +111,7 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: sec
       run: |
-        source /home/runner/work/iac-labs/example-app/.venv
+        source $venv
         poetry run task security
   test:
     runs-on: ubuntu-latest
@@ -126,7 +126,7 @@ jobs:
       with:
         python-version: "3.10"
     - name: Install Poetry
-      uses: snok/install-poetry@v1
+      uses: snok/install-poetry@v1.3.3
     - name: Install dependencies
       run: |
         poetry install --no-root
@@ -138,5 +138,5 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: Test with pytest
       run: |
-        source /home/runner/work/iac-labs/example-app/.venv
+        source $venv
         poetry run task test
