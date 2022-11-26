@@ -33,7 +33,7 @@ jobs:
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: .venv
+        path: /home/runner/.local/example-app/.venv.venv
         key: ${{ runner.os }}-venv
   lint:
     runs-on: ubuntu-latest
@@ -55,7 +55,7 @@ jobs:
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: .venv
+        path: /home/runner/.local/example-app/.venv.venv
         key: ${{ runner.os }}-venv
     - name: Lint with flake8
       run: |
@@ -81,7 +81,7 @@ jobs:
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: .venv
+        path: /home/runner/.local/example-app/.venv.venv
         key: ${{ runner.os }}-venv
     - name: format
       run: |
@@ -107,7 +107,7 @@ jobs:
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: .venv
+        path: /home/runner/.local/example-app/.venv.venv
         key: ${{ runner.os }}-venv
     - name: sec
       run: |
@@ -134,7 +134,7 @@ jobs:
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: .venv
+        path: /home/runner/.local/example-app/.venv
         key: ${{ runner.os }}-venv
     - name: Test with pytest
       run: |
