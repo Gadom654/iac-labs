@@ -90,7 +90,7 @@ jobs:
       run: |
         source $VENV
         poetry run task formatter
-  sec:
+  security:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -114,7 +114,7 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: security
       run: |
-        source $venv
+        source $VENV
         poetry run task security
   test:
     runs-on: ubuntu-latest
