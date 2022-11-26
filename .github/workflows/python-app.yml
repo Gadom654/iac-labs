@@ -41,7 +41,7 @@ jobs:
       run:
         working-directory: ./example-app
     concurrency:
-      group: some-group-name
+      group: some1
     needs: build
     steps:
     - uses: actions/checkout@v3
@@ -69,7 +69,7 @@ jobs:
       run:
         working-directory: ./example-app
     concurrency:
-      group: some-group-name
+      group: some1
     needs: build
     steps:
     - uses: actions/checkout@v3
@@ -97,7 +97,7 @@ jobs:
       run:
         working-directory: ./example-app
     concurrency:
-      group: some-group-name
+      group: some1
     needs: build
     steps:
     - uses: actions/checkout@v3
