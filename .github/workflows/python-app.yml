@@ -136,7 +136,7 @@ jobs:
       with:
         path: /home/runner/work/iac-labs/iac-labs/example-app/.venv
         key: ${{ runner.os }}-venv
-    - name: Lint with flake8
+    - name: Lint
       run: |
         source $VENV
         poetry run task lint
@@ -144,11 +144,11 @@ jobs:
       run: |
         source $VENV
         poetry run task formatter
-    - name: Lint with flake8
+    - name: security
       run: |
         source $VENV
         poetry run task security
     - name: Test with pytest
       run: |
-        source $venv
+        source $VENV
         poetry run task test
