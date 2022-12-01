@@ -70,6 +70,7 @@ jobs:
       run: |
         source $VENV
         poetry run task lint
+      shell: bash
   format:
     strategy:
       matrix:
@@ -99,6 +100,7 @@ jobs:
       run: |
         source $VENV
         poetry run task formatter
+      shell: bash
   security:
     strategy:
       matrix:
@@ -128,6 +130,7 @@ jobs:
       run: |
         source $VENV
         poetry run task security
+      shell: bash
   test:
     strategy:
       matrix:
@@ -155,15 +158,19 @@ jobs:
       run: |
         source $VENV
         poetry run task lint
+      shell: bash
     - name: forma
       run: |
         source $VENV
         poetry run task formatter
+      shell: bash
     - name: security
       run: |
         source $VENV
         poetry run task security
+      shell: bash
     - name: Test with pytest
       run: |
         source $VENV
         poetry run task test
+      shell: bash
