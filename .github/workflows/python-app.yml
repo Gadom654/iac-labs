@@ -14,7 +14,10 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest", "windows-latest" ]
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         working-directory: ./example-app
@@ -39,7 +42,10 @@ jobs:
         path: /home/runner/work/iac-labs/iac-labs/example-app/.venv
         key: ${{ runner.os }}-venv
   lint:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest", "windows-latest" ]
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         working-directory: ./example-app
@@ -65,7 +71,10 @@ jobs:
         source $VENV
         poetry run task lint
   format:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest", "windows-latest" ]
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         working-directory: ./example-app
@@ -91,7 +100,10 @@ jobs:
         source $VENV
         poetry run task formatter
   security:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest", "windows-latest" ]
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         working-directory: ./example-app
@@ -117,7 +129,10 @@ jobs:
         source $VENV
         poetry run task security
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest", "windows-latest" ]
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         working-directory: ./example-app
